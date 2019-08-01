@@ -21,29 +21,28 @@ namespace DataGridViewExample
         {
             var userselect = ((System.Data.DataRowView)
                this.dataGridView1.Rows[e.RowIndex].DataBoundItem).Row
-               as DataGridViewExample.querysinnerjoinDataSet.UsuariosRow;
+               as DataGridViewExample.querysinnerjoinDataSet.;
+            switch (e.RowIndex)
+            {
+                case 0: { this.usuariosTableAdapter.DeleteQuery1(userselect.Id); } break;
+                case 1: {
+                        frmEditaUser tela = new frmEditaUser();
+                        tela.ShowDialog();
+                    } break;
+            }
 
-            this.usuariosTableAdapter.DeleteQuery1(userselect.Id);
+            
 
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
             // TODO: esta linha de código carrega dados na tabela 'querysinnerjoinDataSet.Usuarios'. Você pode movê-la ou removê-la conforme necessário.
-            this.usuariosTableAdapter.Fill(this.querysinnerjoinDataSet.Usuarios);
+            this.usuariosTableAdapter1.Fill(this.querysinnerjoinDataSet.Usuarios);
 
         }
 
        
-        private void Form2_Load_1(object sender, EventArgs e)
-        {
-            // TODO: esta linha de código carrega dados na tabela 'querysinnerjoinDataSet1.Usuarios'. Você pode movê-la ou removê-la conforme necessário.
-            this.usuariosTableAdapter1.Fill(this.querysinnerjoinDataSet1.Usuarios);
-            // TODO: esta linha de código carrega dados na tabela 'querysinnerjoinDataSet3.Usuarios'. Você pode movê-la ou removê-la conforme necessário.
-           // this.usuariosTableAdapter1.Fill(this.querysinnerjoinDataSet3.Usuarios);
-            // TODO: esta linha de código carrega dados na tabela 'querysinnerjoinDataSet3.Usuarios'. Você pode movê-la ou removê-la conforme necessário.
-           // this.usuariosTableAdapter1.Fill(this.querysinnerjoinDataSet3.Usuarios);
-
-        }
+       
     }
 }
